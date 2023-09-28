@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmvmhjl5f0g7u"]
+
+[ext_resource type="Script" path="res://UI/end_game.gd" id="1_xkwut"]
+[ext_resource type="FontFile" uid="uid://bcgdrl43d44l7" path="res://Assets/Hyperspace.otf" id="2_3sh2a"]
+[ext_resource type="FontFile" uid="uid://dwxfgvmf781w3" path="res://Assets/Hyperspace Bold.otf" id="3_rn2bq"]
+
+[node name="End_Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xkwut")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("2_3sh2a")
+theme_override_font_sizes/font_size = 40
+text = "Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -15.5
+offset_right = 100.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rn2bq")
+theme_override_font_sizes/font_size = 20
+text = "Play again?"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 40.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rn2bq")
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

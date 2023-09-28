@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://k5cb1xlovuvg"]
+
+[ext_resource type="Script" path="res://Player/Bomb.gd" id="1_3fqbb"]
+[ext_resource type="Texture2D" uid="uid://c0d6baarph3c" path="res://Assets/Bomb.png" id="2_gmcbq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gls73"]
+radius = 100.0
+
+[node name="Bomb" type="Area2D"]
+script = ExtResource("1_3fqbb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gmcbq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, -24.2, 5, -19.4, 9.4, -8, 11.2, -8, 25, -4.6, 25, -2.8, 28.4, 0.5, 27.3, 3, 25.3, 3, 9.9, 7.5, 4.5, 26, 2.6, 26, -0.9, 28.3, -3, 27.2, -3, 25.4, -9.4, 8, -12.4, 8, -28.3, 1.2, -27.6, -2, -25.3, -2, -8, -9.3, -8, -11.4, -3, -24.4, -3, -28.2)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Blast" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blast"]
+shape = SubResource("CircleShape2D_gls73")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Blast" to="." method="_on_blast_body_entered"]
+[connection signal="body_exited" from="Blast" to="." method="_on_blast_body_exited"]
